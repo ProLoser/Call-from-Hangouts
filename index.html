@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Call from Google Hangouts</title>
+    <style>
+    #note {
+    	display: none;
+    	position: absolute;
+    	top: 5px;
+    	right: 20px;
+    	font-size: 200%;
+    	color: #56AA1F;
+    	padding: 10px;
+    	font-family: Helvetica;
+    }
+    body {
+    	font-family: Helvetica;
+    }
+    </style>
+</head>
+<body>
+  <h2><a href="https://github.com/ProLoser/Telephone-Link-Handler-for-Google-Hangouts">Call From Hangouts</a></h2>
+  <div id="placeholder-div"></div>
+  <div id="note">Click <img src="SNP_2715494_en_v0.png"> &#8679;<br>to enable</div>
+  <script>
+  	navigator.registerProtocolHandler('tel', location.href+'/#%s', 'Call from Hangout')
+
+    window.___gcfg = {
+      parsetags: 'onload'
+    };
+
+    function onload(){
+      if (location.hash) {
+	      gapi.hangout.render('placeholder-div', {
+	          'render': 'createhangout',
+	          'invites': [{id: decodeURIComponent(location.hash).substr(5), invite_type: 'PHONE'}]
+	        });
+      } else {
+      	document.getElementById('note').style.display = 'block';
+      }
+    }
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=onload" async defer></script>
+</body>
+</html>
