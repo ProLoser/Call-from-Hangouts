@@ -12,8 +12,10 @@
     	padding: 10px;
     	font-family: Helvetica;
     }
-    body {
+    body, a {
     	font-family: Helvetica;
+    	color: #56AA1F;
+    	text-decoration: none;
     }
     </style>
 </head>
@@ -22,7 +24,7 @@
   <div id="placeholder-div"></div>
   <div id="note">Click <img src="SNP_2715494_en_v0.png"> &#8679;<br>to enable</div>
   <script>
-  	navigator.registerProtocolHandler('tel', location.href+'/#%s', 'Call from Hangout')
+  	navigator.registerProtocolHandler('tel', location.href+'#%s', 'Call from Hangout')
 
     window.___gcfg = {
       parsetags: 'onload'
