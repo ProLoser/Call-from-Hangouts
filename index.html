@@ -21,20 +21,23 @@
 </head>
 <body>
   <h2><a href="https://github.com/ProLoser/Telephone-Link-Handler-for-Google-Hangouts">Call From Hangouts</a></h2>
+  <h3 id="number"></h3>
   <div id="placeholder-div"></div>
   <div id="note">Click <img src="SNP_2715494_en_v0.png"> &#8679;<br>to enable</div>
   <script>
   	navigator.registerProtocolHandler('tel', location.href+'#%s', 'Call from Hangout')
 
     window.___gcfg = {
-      parsetags: 'onload'
+      parsetags: 'explicit'
     };
 
     function onload(){
       if (location.hash) {
+        var number = decodeURIComponent(location.hash).substr(5);
+        document.getElementById('number').innerText = number;
 	      gapi.hangout.render('placeholder-div', {
 	          'render': 'createhangout',
-	          'invites': [{id: decodeURIComponent(location.hash).substr(5), invite_type: 'PHONE'}]
+	          'invites': [{id: number, invite_type: 'PHONE'}]
 	        });
       } else {
       	document.getElementById('note').style.display = 'block';
