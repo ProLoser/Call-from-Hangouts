@@ -16,6 +16,7 @@
     	font-family: Helvetica;
     	color: #56AA1F;
     	text-decoration: none;
+      text-align: center;
     }
     </style>
 </head>
@@ -25,7 +26,7 @@
   <div id="placeholder-div"></div>
   <div id="note">Click <img src="SNP_2715494_en_v0.png"> &#8679;<br>to enable</div>
   <script>
-  	navigator.registerProtocolHandler('tel', location.href+'#%s', 'Call from Hangout')
+  	navigator.registerProtocolHandler('tel', location.protocol+'//'+location.host+location.pathname+'#%s', 'Call from Hangout')
 
     window.___gcfg = {
       parsetags: 'explicit'
